@@ -7480,6 +7480,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"flagpack-core@npm:^1.0.0":
+  version: 1.1.2
+  resolution: "flagpack-core@npm:1.1.2"
+  checksum: d97acbb807f49a8686fde9b87ff985ece23547f008fcec3bcc7fcb37d5e6310aec36bd67259edc67fee8b19f75d9e022e295dcf5dbc08a1a53be18f28fd33c0c
+  languageName: node
+  linkType: hard
+
 "flat-cache@npm:^3.0.4":
   version: 3.2.0
   resolution: "flat-cache@npm:3.2.0"
@@ -13512,6 +13519,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-flagpack@npm:1.0.0":
+  version: 1.0.0
+  resolution: "react-flagpack@npm:1.0.0"
+  dependencies:
+    flagpack-core: ^1.0.0
+  peerDependencies:
+    react: ^16.8.*
+  checksum: bea7db7dd5f58aa0e8f4b916f6b57b570aaab51eef9cb59ed0ae740d295418b86ace1dbe788dfedf2577b5100c8fa86f30b2c27d14b0a79fde50cd5e919fc04a
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.13.1, react-is@npm:^16.3.2":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -16462,6 +16480,7 @@ __metadata:
     react: 18.2.0
     react-bootstrap: ^2.9.1
     react-dom: 18.2.0
+    react-flagpack: 1.0.0
     react-router-dom: 6.10.0
     react-scripts: 5.0.1
     typescript: 4.1.3

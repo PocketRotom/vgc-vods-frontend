@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Ratio from 'react-bootstrap/Ratio';
 import Table from 'react-bootstrap/Table';
+import Flag from 'react-flagpack';
 
 
 
@@ -37,6 +38,7 @@ export default function Match() {
 					<h1>
 						{match.event_name} - {match.round} - {match.age_division == 'M' ? 'Masters' : match.age_division == 'S' ? 'Senior' : 'Junior'}
 					</h1>
+					<h2>{match.event_location}, {match.country_name}, {new Date (match.date).getFullYear()}/{new Date(match.date).getMonth()}/{new Date(match.date).getDate()}</h2>
 				</Col>
 			</Row>
 			<Row>
@@ -53,8 +55,9 @@ export default function Match() {
 				<Col xs={4}>
 					<Table striped bordered>
 						<tr>
-							<td colSpan={5}>{match.player1_name}</td>
-							<td>{match.p1_country_name}</td>
+							<th>Player 1</th>
+							<td colSpan={4}>{match.player1_name}</td>
+							<td><Flag hasBorder={false} size="M" code={match.p1_country_code}/></td>
 						</tr>
 						<tr>
 							<td>{match.pokemon1_p1_name}</td>
@@ -65,8 +68,9 @@ export default function Match() {
 							<td>{match.pokemon6_p1_name}</td>
 						</tr>
 						<tr>
-							<td colSpan={5}>{match.player2_name}</td>
-							<td>{match.p2_country_name}</td>
+							<th>Player 2</th>
+							<td colSpan={4}>{match.player2_name}</td>
+							<td><Flag hasBorder={false} size="M" code={match.p2_country_code}/></td>
 						</tr>
 						<tr>
 							<td>{match.pokemon1_p2_name}</td>
@@ -76,6 +80,49 @@ export default function Match() {
 							<td>{match.pokemon5_p2_name}</td>
 							<td>{match.pokemon6_p2_name}</td>
 						</tr>
+						<tr>
+							<th colSpan={6}>Casters</th>
+						</tr>
+						<tr>
+							<td colSpan={2}>{match.caster1_name}</td>
+							<td colSpan={1}><Flag hasBorder={false} size="M" code={match.c1_country_code} /></td>
+							<td colSpan={2}>{match.caster2_name}</td>
+							<td colSpan={1}><Flag hasBorder={false} size="M" code={match.c2_country_code} /></td>
+						</tr>
+						<tr>
+							<th rowSpan={2}>Game 1</th>
+							<td colSpan={5}>
+								{match.lead1_p1_g1_name}, {match.lead2_p1_g1_name}{match.back1_p1_g1_id != 0 && `, ${match.back1_p1_g1_name}`}{match.back2_p1_g1_id != 0 && `, ${match.back2_p1_g1_name}`}
+							</td>
+						</tr>
+						<tr>
+							<td colSpan={5}>
+								{match.lead1_p2_g1_name}, {match.lead2_p2_g1_name}{match.back1_p2_g1_id != 0 && `, ${match.back1_p2_g1_name}`}{match.back2_p2_g1_id != 0 && `, ${match.back2_p2_g1_name}`}
+							</td>
+						</tr>
+						<tr>
+							<th rowSpan={2}>Game 2</th>
+							<td colSpan={5}>
+								{match.lead1_p1_g2_name}, {match.lead2_p1_g2_name}{match.back1_p1_g2_id != 0 && `, ${match.back1_p1_g2_name}`}{match.back2_p1_g2_id != 0 && `, ${match.back2_p1_g2_name}`}
+							</td>
+						</tr>
+						<tr>
+							<td colSpan={5}>
+								{match.lead1_p2_g2_name}, {match.lead2_p2_g2_name}{match.back1_p2_g2_id != 0 && `, ${match.back1_p2_g2_name}`}{match.back2_p2_g2_id != 0 && `, ${match.back2_p2_g2_name}`}
+							</td>
+						</tr>
+						{match.lead1_p1_g3_name && <><tr>
+							<th rowSpan={2}>Game 3</th>
+							<td colSpan={5}>
+								{match.lead1_p1_g3_name}, {match.lead2_p1_g3_name}{match.back1_p1_g3_id != 0 && `, ${match.back1_p1_g3_name}`}{match.back2_p1_g3_name != 0 && `, ${match.back2_p1_g3_name}`}
+							</td>
+						</tr>
+						<tr>
+							<td colSpan={5}>
+								{match.lead1_p2_g3_name}, {match.lead2_p2_g3_name}{match.back1_p2_g3_id != 0 && `, ${match.back1_p2_g3_name}`}{match.back2_p2_g3_name != 0 && `, ${match.back2_p2_g3_name}`}
+							</td>
+						</tr></>}
+						
 					</Table>
 				</Col>
 			</Row>
