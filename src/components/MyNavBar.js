@@ -4,9 +4,12 @@ import React from 'react';
 import logo from '../logo.svg';
 import MenuItems from './MenuItems';
 import PathConstants from '../routes/pathConstants';
+import MenuToggler from './MenuToggler';
+import { useApp } from '../contexts/app';
 
 export default function MyNavBar() {
 	const [expanded, setExpanded] = React.useState(false);
+	const { spoilers, setSpoilers } = useApp();
 
 	return (
 		<Navbar bg="dark" variant="dark" expand="lg" expanded={expanded}>
@@ -31,10 +34,9 @@ export default function MyNavBar() {
 						path={PathConstants.HOME}
 						onClose={setExpanded}
 					/>
-					<MenuItems
-						name="About"
-						path={PathConstants.ABOUT}
-						onClose={setExpanded}
+					<MenuToggler
+						name={spoilers ? 'Hide Spoilers' : 'Show Spoilers'}
+						function={() => setSpoilers(!spoilers)} 
 					/>
 				</Navbar.Collapse>
 			</Container>

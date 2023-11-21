@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import routes from './routes';
 import Layout from './components/Layout';
 import Page404 from './pages/Page404';
+import { AppProvider } from './contexts/app';
 
 function App() {
 	const router = createBrowserRouter([
@@ -14,7 +15,11 @@ function App() {
 		}
 	]);
 
-	return <RouterProvider router={router} />;
+	return (
+		<AppProvider>
+			<RouterProvider router={router} />;
+		</AppProvider>
+	);
 }
 
 export default App;

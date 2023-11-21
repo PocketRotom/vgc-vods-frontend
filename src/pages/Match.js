@@ -6,11 +6,13 @@ import Col from 'react-bootstrap/Col';
 import Ratio from 'react-bootstrap/Ratio';
 import Table from 'react-bootstrap/Table';
 import Flag from 'react-flagpack';
+import { useApp } from '../contexts/app';
 
 
 
 export default function Match() {
 	let params = useParams();
+	let {spoilers} = useApp();
 	const [match, setMatch] = useState();
 	const [loading, setLoading] = useState(true);
 
@@ -89,39 +91,42 @@ export default function Match() {
 							<td colSpan={2}>{match.caster2_name}</td>
 							<td colSpan={1}><Flag hasBorder={false} size="M" code={match.c2_country_code} /></td>
 						</tr>
-						<tr>
-							<th rowSpan={2}>Game 1</th>
-							<td colSpan={5}>
-								{match.lead1_p1_g1_name}, {match.lead2_p1_g1_name}{match.back1_p1_g1_id != 0 && `, ${match.back1_p1_g1_name}`}{match.back2_p1_g1_id != 0 && `, ${match.back2_p1_g1_name}`}
-							</td>
-						</tr>
-						<tr>
-							<td colSpan={5}>
-								{match.lead1_p2_g1_name}, {match.lead2_p2_g1_name}{match.back1_p2_g1_id != 0 && `, ${match.back1_p2_g1_name}`}{match.back2_p2_g1_id != 0 && `, ${match.back2_p2_g1_name}`}
-							</td>
-						</tr>
-						<tr>
-							<th rowSpan={2}>Game 2</th>
-							<td colSpan={5}>
-								{match.lead1_p1_g2_name}, {match.lead2_p1_g2_name}{match.back1_p1_g2_id != 0 && `, ${match.back1_p1_g2_name}`}{match.back2_p1_g2_id != 0 && `, ${match.back2_p1_g2_name}`}
-							</td>
-						</tr>
-						<tr>
-							<td colSpan={5}>
-								{match.lead1_p2_g2_name}, {match.lead2_p2_g2_name}{match.back1_p2_g2_id != 0 && `, ${match.back1_p2_g2_name}`}{match.back2_p2_g2_id != 0 && `, ${match.back2_p2_g2_name}`}
-							</td>
-						</tr>
-						{match.lead1_p1_g3_name && <><tr>
-							<th rowSpan={2}>Game 3</th>
-							<td colSpan={5}>
-								{match.lead1_p1_g3_name}, {match.lead2_p1_g3_name}{match.back1_p1_g3_id != 0 && `, ${match.back1_p1_g3_name}`}{match.back2_p1_g3_name != 0 && `, ${match.back2_p1_g3_name}`}
-							</td>
-						</tr>
-						<tr>
-							<td colSpan={5}>
-								{match.lead1_p2_g3_name}, {match.lead2_p2_g3_name}{match.back1_p2_g3_id != 0 && `, ${match.back1_p2_g3_name}`}{match.back2_p2_g3_name != 0 && `, ${match.back2_p2_g3_name}`}
-							</td>
-						</tr></>}
+						{spoilers && <>
+							<tr>
+								<th rowSpan={2}>Game 1</th>
+								<td colSpan={5}>
+									{match.lead1_p1_g1_name}, {match.lead2_p1_g1_name}{match.back1_p1_g1_id != 0 && `, ${match.back1_p1_g1_name}`}{match.back2_p1_g1_id != 0 && `, ${match.back2_p1_g1_name}`}
+								</td>
+							</tr>
+							<tr>
+								<td colSpan={5}>
+									{match.lead1_p2_g1_name}, {match.lead2_p2_g1_name}{match.back1_p2_g1_id != 0 && `, ${match.back1_p2_g1_name}`}{match.back2_p2_g1_id != 0 && `, ${match.back2_p2_g1_name}`}
+								</td>
+							</tr>
+							<tr>
+								<th rowSpan={2}>Game 2</th>
+								<td colSpan={5}>
+									{match.lead1_p1_g2_name}, {match.lead2_p1_g2_name}{match.back1_p1_g2_id != 0 && `, ${match.back1_p1_g2_name}`}{match.back2_p1_g2_id != 0 && `, ${match.back2_p1_g2_name}`}
+								</td>
+							</tr>
+							<tr>
+								<td colSpan={5}>
+									{match.lead1_p2_g2_name}, {match.lead2_p2_g2_name}{match.back1_p2_g2_id != 0 && `, ${match.back1_p2_g2_name}`}{match.back2_p2_g2_id != 0 && `, ${match.back2_p2_g2_name}`}
+								</td>
+							</tr>
+							{match.lead1_p1_g3_name && <><tr>
+								<th rowSpan={2}>Game 3</th>
+								<td colSpan={5}>
+									{match.lead1_p1_g3_name}, {match.lead2_p1_g3_name}{match.back1_p1_g3_id != 0 && `, ${match.back1_p1_g3_name}`}{match.back2_p1_g3_name != 0 && `, ${match.back2_p1_g3_name}`}
+								</td>
+							</tr>
+							<tr>
+								<td colSpan={5}>
+									{match.lead1_p2_g3_name}, {match.lead2_p2_g3_name}{match.back1_p2_g3_id != 0 && `, ${match.back1_p2_g3_name}`}{match.back2_p2_g3_name != 0 && `, ${match.back2_p2_g3_name}`}
+								</td>
+							</tr></>}
+						</>}
+						
 						
 					</Table>
 				</Col>
