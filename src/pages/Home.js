@@ -17,7 +17,6 @@ export default function Home() {
 		(async () => {
 			const matches = await getMatches();
 			const final = groupToArray(matches.data, 'format_id');
-			console.log(final);
 			setAllFormats(final);
 		})();
 	}, []);
@@ -26,7 +25,7 @@ export default function Home() {
 		<div>
 			<Row>
 				{allFormats.map((match) => (
-					<Col xs={6} key={match[1][0].format_id}>
+					<Col xs={12} md={6} key={match[1][0].format_id}>
 						<h1>{match[1][0].format_name}</h1>
 						<Table striped bordered>
 							<thead>

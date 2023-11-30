@@ -8,5 +8,5 @@ MenuItems.propTypes = {
 };
 
 export default function MenuItems(props) {
-	return <Link style={{ textDecoration: 'none', color: 'white' }} to={props.path}>{props.name}</Link>;
+	return <Link style={{ textDecoration: 'none', color: 'white', paddingLeft: '10px', paddingRight: '10px' }} to={props.path}>{props.name}</Link>;
 }

@@ -7,6 +7,7 @@ import Ratio from 'react-bootstrap/Ratio';
 import Table from 'react-bootstrap/Table';
 import Flag from 'react-flagpack';
 import { useApp } from '../contexts/app';
+import Image from 'react-bootstrap/Image';
 
 
 
@@ -44,7 +45,7 @@ export default function Match() {
 				</Col>
 			</Row>
 			<Row>
-				<Col xs={8}>
+				<Col md={8} xs={12}>
 					<Ratio aspectRatio="16x9">
 						<iframe
 							src={match.url.replace('watch?v=', 'embed/')}
@@ -54,7 +55,7 @@ export default function Match() {
 						></iframe>
 					</Ratio>
 				</Col>
-				<Col xs={4}>
+				<Col md={4} xs={12}>
 					<Table striped bordered>
 						<tr>
 							<th>Player 1</th>
@@ -62,12 +63,12 @@ export default function Match() {
 							<td><Flag hasBorder={false} size="M" code={match.p1_country_code}/></td>
 						</tr>
 						<tr>
-							<td>{match.pokemon1_p1_name}</td>
-							<td>{match.pokemon2_p1_name}</td>
-							<td>{match.pokemon3_p1_name}</td>
-							<td>{match.pokemon4_p1_name}</td>
-							<td>{match.pokemon5_p1_name}</td>
-							<td>{match.pokemon6_p1_name}</td>
+							<td><Image alt={match.pokemon1_p1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon1_p1_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon2_p1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon2_p1_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon3_p1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon3_p1_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon4_p1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon4_p1_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon5_p1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon5_p1_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon6_p1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon6_p1_id}.png`}></Image></td>
 						</tr>
 						<tr>
 							<th>Player 2</th>
@@ -75,12 +76,12 @@ export default function Match() {
 							<td><Flag hasBorder={false} size="M" code={match.p2_country_code}/></td>
 						</tr>
 						<tr>
-							<td>{match.pokemon1_p2_name}</td>
-							<td>{match.pokemon2_p2_name}</td>
-							<td>{match.pokemon3_p2_name}</td>
-							<td>{match.pokemon4_p2_name}</td>
-							<td>{match.pokemon5_p2_name}</td>
-							<td>{match.pokemon6_p2_name}</td>
+							<td><Image alt={match.pokemon1_p2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon1_p2_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon2_p2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon2_p2_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon3_p2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon3_p2_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon4_p2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon4_p2_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon5_p2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon5_p2_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon6_p2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon6_p2_id}.png`}></Image></td>
 						</tr>
 						<tr>
 							<th colSpan={6}>Casters</th>
@@ -95,39 +96,55 @@ export default function Match() {
 							<tr>
 								<th rowSpan={2}>Game 1</th>
 								<td colSpan={5}>
-									{match.lead1_p1_g1_name}, {match.lead2_p1_g1_name}{match.back1_p1_g1_id != 0 && `, ${match.back1_p1_g1_name}`}{match.back2_p1_g1_id != 0 && `, ${match.back2_p1_g1_name}`}
+									<Image alt={match.lead1_p1_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead1_p1_g1_id}.png`}></Image>
+									<Image alt={match.lead2_p1_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead2_p1_g1_id}.png`}></Image>
+									<Image alt={match.back1_p1_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back1_p1_g1_id}.png`}></Image>
+									<Image alt={match.back2_p1_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back2_p1_g1_id}.png`}></Image>
 								</td>
 							</tr>
 							<tr>
 								<td colSpan={5}>
-									{match.lead1_p2_g1_name}, {match.lead2_p2_g1_name}{match.back1_p2_g1_id != 0 && `, ${match.back1_p2_g1_name}`}{match.back2_p2_g1_id != 0 && `, ${match.back2_p2_g1_name}`}
+									<Image alt={match.lead1_p2_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead1_p2_g1_id}.png`}></Image>
+									<Image alt={match.lead2_p2_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead2_p2_g1_id}.png`}></Image>
+									<Image alt={match.back1_p2_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back1_p2_g1_id}.png`}></Image>
+									<Image alt={match.back2_p2_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back2_p2_g1_id}.png`}></Image>
 								</td>
 							</tr>
 							<tr>
 								<th rowSpan={2}>Game 2</th>
 								<td colSpan={5}>
-									{match.lead1_p1_g2_name}, {match.lead2_p1_g2_name}{match.back1_p1_g2_id != 0 && `, ${match.back1_p1_g2_name}`}{match.back2_p1_g2_id != 0 && `, ${match.back2_p1_g2_name}`}
+									<Image alt={match.lead1_p1_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead1_p1_g2_id}.png`}></Image>
+									<Image alt={match.lead2_p1_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead2_p1_g2_id}.png`}></Image>
+									<Image alt={match.back1_p1_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back1_p1_g2_id}.png`}></Image>
+									<Image alt={match.back2_p1_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back2_p1_g2_id}.png`}></Image>
 								</td>
 							</tr>
 							<tr>
 								<td colSpan={5}>
-									{match.lead1_p2_g2_name}, {match.lead2_p2_g2_name}{match.back1_p2_g2_id != 0 && `, ${match.back1_p2_g2_name}`}{match.back2_p2_g2_id != 0 && `, ${match.back2_p2_g2_name}`}
+									<Image alt={match.lead1_p2_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead1_p2_g2_id}.png`}></Image>
+									<Image alt={match.lead2_p2_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead2_p2_g2_id}.png`}></Image>
+									<Image alt={match.back1_p2_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back1_p2_g2_id}.png`}></Image>
+									<Image alt={match.back2_p2_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back2_p2_g2_id}.png`}></Image>
 								</td>
 							</tr>
 							{match.lead1_p1_g3_name && <><tr>
 								<th rowSpan={2}>Game 3</th>
 								<td colSpan={5}>
-									{match.lead1_p1_g3_name}, {match.lead2_p1_g3_name}{match.back1_p1_g3_id != 0 && `, ${match.back1_p1_g3_name}`}{match.back2_p1_g3_name != 0 && `, ${match.back2_p1_g3_name}`}
+									<Image alt={match.lead1_p1_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead1_p1_g3_id}.png`}></Image>
+									<Image alt={match.lead2_p1_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead2_p1_g3_id}.png`}></Image>
+									<Image alt={match.back1_p1_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back1_p1_g3_id}.png`}></Image>
+									<Image alt={match.back2_p1_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back2_p1_g3_id}.png`}></Image>
 								</td>
 							</tr>
 							<tr>
 								<td colSpan={5}>
-									{match.lead1_p2_g3_name}, {match.lead2_p2_g3_name}{match.back1_p2_g3_id != 0 && `, ${match.back1_p2_g3_name}`}{match.back2_p2_g3_name != 0 && `, ${match.back2_p2_g3_name}`}
+									<Image alt={match.lead1_p2_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead1_p2_g3_id}.png`}></Image>
+									<Image alt={match.lead2_p2_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead2_p2_g3_id}.png`}></Image>
+									<Image alt={match.back1_p2_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back1_p2_g3_id}.png`}></Image>
+									<Image alt={match.back2_p2_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back2_p2_g3_id}.png`}></Image>
 								</td>
 							</tr></>}
 						</>}
-						
-						
 					</Table>
 				</Col>
 			</Row>

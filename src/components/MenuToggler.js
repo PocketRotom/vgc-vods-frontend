@@ -13,5 +13,5 @@ export default function MenuToggler(props) {
 		props.function();
 	}
 
-	return <div style={{ textDecoration: 'none', color: 'white' }} onClick={handleClick} >{props.name}</div>;
+	return <div style={{ textDecoration: 'none', color: 'white', paddingLeft: '10px', paddingRight: '10px'  }} onClick={handleClick} >{props.name}</div>;
 }

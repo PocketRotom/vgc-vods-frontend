@@ -1,5 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 import React from 'react';
 import logo from '../logo.svg';
 import MenuItems from './MenuItems';
@@ -14,7 +15,7 @@ export default function MyNavBar() {
 	return (
 		<Navbar bg="dark" variant="dark" expand="lg" expanded={expanded}>
 			<Container>
-				<Navbar.Brand href="#home">
+				<Navbar.Brand href="/">
 					<img
 						alt=""
 						src={logo}
@@ -28,16 +29,23 @@ export default function MyNavBar() {
 					aria-controls="navbarScroll"
 					onClick={() => setExpanded(!expanded)}
 				/>
-				<Navbar.Collapse id="navbarScroll" className="justify-content-evenly">
-					<MenuItems
-						name="Home"
-						path={PathConstants.HOME}
-						onClose={setExpanded}
-					/>
-					<MenuToggler
-						name={spoilers ? 'Hide Spoilers' : 'Show Spoilers'}
-						function={() => setSpoilers(!spoilers)} 
-					/>
+				<Navbar.Collapse id="navbarScroll">
+					<Nav className="me-auto my-2 my-lg-0" navbarScroll>
+						<MenuItems
+							name="Home"
+							path={PathConstants.HOME}
+							onClose={setExpanded}
+						/>
+						<MenuItems
+							name="Add Match"
+							path={PathConstants.ADD}
+							onClose={setExpanded}
+						/>
+						<MenuToggler
+							name={spoilers ? 'Hide Spoilers' : 'Show Spoilers'}
+							function={() => setSpoilers(!spoilers)} 
+						/>
+					</Nav>
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>
