@@ -8,3 +8,14 @@ export const getAllPlayers = async () => {
 		console.log(error);
 	}
 };
+
+export const addPlayer = async (player) => {
+	try {
+		const res = await api.post('/addNewPlayer', null, {
+			params: player
+		});
+		return res.data;
+	} catch (error) {
+		console.log(error);
+	}
+};
