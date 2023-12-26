@@ -1,6 +1,9 @@
 footer {
     background-color: #f8f8f8;
     height: 60px;
+    position: absolute;
+    bottom: 0;
+    width: 100%
 }
 
 .footer-div {

@@ -1069,9 +1069,6 @@ export default function AddMatch() {
 					</>
 				)}
 			</Form>
-			{tournament + '' + tournamentName + ' ' + tournamentStartDate + ' ' + tournamentEndDate + ' ' + location + ' ' + format + ' ' + country + ' ' + player1 + ' ' + player1Name + ' ' + player1Twitter + ' ' + player1Country + ' ' + player1Caster + ' ' + player2 + ' ' + player2Name + ' ' + player2Twitter + ' ' + player2Country + ' ' + player2Caster + ' ' + pokemonP1Names.some(item => item.id == -1) + ' ' + pokemonP2Names.some(item => item.id == -1) + ' ' + JSON.stringify(pokemonP1Names) + ' ' + JSON.stringify(pokemonP2Names) + '' + ageDivision + ' ' + matchDate + ' ' + round + ' ' + url}
-			{'Casters: ' + caster1 + ' ' + caster1Name + ' ' + caster1Twitter + ' ' + caster1Country + ' ' + caster2 + ' ' + caster2Name + ' ' + caster2Twitter + ' ' + caster2Country}
-			{'pokemonP1LeadG1: ' + pokemonP1LeadG1 + 'pokemonP2LeadG1: ' + pokemonP2LeadG1 }
 		</Container>
 	);
 }
