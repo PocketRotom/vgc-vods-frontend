@@ -59,32 +59,32 @@ export default function Match() {
 					</Ratio>
 				</Col>
 				<Col md={4} xs={12}>
-					<Table striped bordered>
+					<Table striped bordered size="sm" responsive>
 						<tr>
-							<th>Player 1</th>
-							<td colSpan={4}>{match.player1_name}</td>
+							<th colSpan={2}>Player 1</th>
+							<td colSpan={3}>{match.player1_name}</td>
 							<td><Flag hasBorder={false} size="M" code={match.p1_country_code}/></td>
 						</tr>
 						<tr>
-							<td><Image alt={match.pokemon1_p1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon1_p1_id}.png`}></Image></td>
-							<td><Image alt={match.pokemon2_p1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon2_p1_id}.png`}></Image></td>
-							<td><Image alt={match.pokemon3_p1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon3_p1_id}.png`}></Image></td>
-							<td><Image alt={match.pokemon4_p1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon4_p1_id}.png`}></Image></td>
-							<td><Image alt={match.pokemon5_p1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon5_p1_id}.png`}></Image></td>
-							<td><Image alt={match.pokemon6_p1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon6_p1_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon1_p1_name} fluid src={`https://pocketrotom.pt/vods_test/${match.pokemon1_p1_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon2_p1_name} fluid src={`https://pocketrotom.pt/vods_test/${match.pokemon2_p1_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon3_p1_name} fluid src={`https://pocketrotom.pt/vods_test/${match.pokemon3_p1_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon4_p1_name} fluid src={`https://pocketrotom.pt/vods_test/${match.pokemon4_p1_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon5_p1_name} fluid src={`https://pocketrotom.pt/vods_test/${match.pokemon5_p1_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon6_p1_name} fluid src={`https://pocketrotom.pt/vods_test/${match.pokemon6_p1_id}.png`}></Image></td>
 						</tr>
 						<tr>
-							<th>Player 2</th>
-							<td colSpan={4}>{match.player2_name}</td>
+							<th colSpan={2}>Player 2</th>
+							<td colSpan={3}>{match.player2_name}</td>
 							<td><Flag hasBorder={false} size="M" code={match.p2_country_code}/></td>
 						</tr>
 						<tr>
-							<td><Image alt={match.pokemon1_p2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon1_p2_id}.png`}></Image></td>
-							<td><Image alt={match.pokemon2_p2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon2_p2_id}.png`}></Image></td>
-							<td><Image alt={match.pokemon3_p2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon3_p2_id}.png`}></Image></td>
-							<td><Image alt={match.pokemon4_p2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon4_p2_id}.png`}></Image></td>
-							<td><Image alt={match.pokemon5_p2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon5_p2_id}.png`}></Image></td>
-							<td><Image alt={match.pokemon6_p2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.pokemon6_p2_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon1_p2_name} fluid src={`https://pocketrotom.pt/vods_test/${match.pokemon1_p2_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon2_p2_name} fluid src={`https://pocketrotom.pt/vods_test/${match.pokemon2_p2_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon3_p2_name} fluid src={`https://pocketrotom.pt/vods_test/${match.pokemon3_p2_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon4_p2_name} fluid src={`https://pocketrotom.pt/vods_test/${match.pokemon4_p2_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon5_p2_name} fluid src={`https://pocketrotom.pt/vods_test/${match.pokemon5_p2_id}.png`}></Image></td>
+							<td><Image alt={match.pokemon6_p2_name} fluid src={`https://pocketrotom.pt/vods_test/${match.pokemon6_p2_id}.png`}></Image></td>
 						</tr>
 						{match.caster1_name && <>
 							<tr>
@@ -104,55 +104,91 @@ export default function Match() {
 						{spoilers && <>
 							<tr>
 								<th rowSpan={2} colSpan={2}>Game 1</th>
-								<td colSpan={4}>
-									<Image alt={match.lead1_p1_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead1_p1_g1_id}.png`}></Image>
-									<Image alt={match.lead2_p1_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead2_p1_g1_id}.png`}></Image>
-									<Image alt={match.back1_p1_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back1_p1_g1_id}.png`}></Image>
-									<Image alt={match.back2_p1_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back2_p1_g1_id}.png`}></Image>
+								<td>
+									<Image alt={match.lead1_p1_g1_name} fluid src={`https://pocketrotom.pt/vods_test/${match.lead1_p1_g1_id}.png`}></Image>
+								</td>
+								<td>
+									<Image alt={match.lead2_p1_g1_name} fluid src={`https://pocketrotom.pt/vods_test/${match.lead2_p1_g1_id}.png`}></Image>
+								</td>
+								<td>
+									<Image alt={match.back1_p1_g1_name} fluid src={`https://pocketrotom.pt/vods_test/${match.back1_p1_g1_id}.png`}></Image>
+								</td>
+								<td>
+									<Image alt={match.back2_p1_g1_name} fluid src={`https://pocketrotom.pt/vods_test/${match.back2_p1_g1_id}.png`}></Image>
 								</td>
 							</tr>
 							<tr>
-								<td colSpan={4}>
-									<Image alt={match.lead1_p2_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead1_p2_g1_id}.png`}></Image>
-									<Image alt={match.lead2_p2_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead2_p2_g1_id}.png`}></Image>
-									<Image alt={match.back1_p2_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back1_p2_g1_id}.png`}></Image>
-									<Image alt={match.back2_p2_g1_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back2_p2_g1_id}.png`}></Image>
+								<td>
+									<Image alt={match.lead1_p2_g1_name} fluid src={`https://pocketrotom.pt/vods_test/${match.lead1_p2_g1_id}.png`}></Image>
+								</td>
+								<td>
+									<Image alt={match.lead2_p2_g1_name} fluid src={`https://pocketrotom.pt/vods_test/${match.lead2_p2_g1_id}.png`}></Image>
+								</td>
+								<td>
+									<Image alt={match.back1_p2_g1_name} fluid src={`https://pocketrotom.pt/vods_test/${match.back1_p2_g1_id}.png`}></Image>
+								</td>
+								<td>
+									<Image alt={match.back2_p2_g1_name} fluid src={`https://pocketrotom.pt/vods_test/${match.back2_p2_g1_id}.png`}></Image>
 								</td>
 							</tr>
 							{match.lead1_p1_g2_name &&<>
 								<tr>
 									<th rowSpan={2} colSpan={2}>Game 2</th>
-									<td colSpan={4}>
-										<Image alt={match.lead1_p1_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead1_p1_g2_id}.png`}></Image>
-										<Image alt={match.lead2_p1_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead2_p1_g2_id}.png`}></Image>
-										<Image alt={match.back1_p1_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back1_p1_g2_id}.png`}></Image>
-										<Image alt={match.back2_p1_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back2_p1_g2_id}.png`}></Image>
+									<td>
+										<Image alt={match.lead1_p1_g2_name} fluid src={`https://pocketrotom.pt/vods_test/${match.lead1_p1_g2_id}.png`}></Image>
+									</td>
+									<td>
+										<Image alt={match.lead2_p1_g2_name} fluid src={`https://pocketrotom.pt/vods_test/${match.lead2_p1_g2_id}.png`}></Image>
+									</td>
+									<td>
+										<Image alt={match.back1_p1_g2_name} fluid src={`https://pocketrotom.pt/vods_test/${match.back1_p1_g2_id}.png`}></Image>
+									</td>
+									<td>
+										<Image alt={match.back2_p1_g2_name} fluid src={`https://pocketrotom.pt/vods_test/${match.back2_p1_g2_id}.png`}></Image>
 									</td>
 								</tr>
 								<tr>
-									<td colSpan={4}>
-										<Image alt={match.lead1_p2_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead1_p2_g2_id}.png`}></Image>
-										<Image alt={match.lead2_p2_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead2_p2_g2_id}.png`}></Image>
-										<Image alt={match.back1_p2_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back1_p2_g2_id}.png`}></Image>
-										<Image alt={match.back2_p2_g2_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back2_p2_g2_id}.png`}></Image>
+									<td>
+										<Image alt={match.lead1_p2_g2_name} fluid src={`https://pocketrotom.pt/vods_test/${match.lead1_p2_g2_id}.png`}></Image>
+									</td>
+									<td>
+										<Image alt={match.lead2_p2_g2_name} fluid src={`https://pocketrotom.pt/vods_test/${match.lead2_p2_g2_id}.png`}></Image>
+									</td>
+									<td>
+										<Image alt={match.back1_p2_g2_name} fluid src={`https://pocketrotom.pt/vods_test/${match.back1_p2_g2_id}.png`}></Image>
+									</td>
+									<td>
+										<Image alt={match.back2_p2_g2_name} fluid src={`https://pocketrotom.pt/vods_test/${match.back2_p2_g2_id}.png`}></Image>
 									</td>
 								</tr></>}
 							
 							{match.lead1_p1_g3_name && <><tr>
 								<th rowSpan={2} colSpan={2}>Game 3</th>
-								<td colSpan={4}>
-									<Image alt={match.lead1_p1_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead1_p1_g3_id}.png`}></Image>
-									<Image alt={match.lead2_p1_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead2_p1_g3_id}.png`}></Image>
-									<Image alt={match.back1_p1_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back1_p1_g3_id}.png`}></Image>
-									<Image alt={match.back2_p1_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back2_p1_g3_id}.png`}></Image>
+								<td>
+									<Image alt={match.lead1_p1_g3_name} fluid src={`https://pocketrotom.pt/vods_test/${match.lead1_p1_g3_id}.png`}></Image>
+								</td>
+								<td>
+									<Image alt={match.lead2_p1_g3_name} fluid src={`https://pocketrotom.pt/vods_test/${match.lead2_p1_g3_id}.png`}></Image>
+								</td>
+								<td>
+									<Image alt={match.back1_p1_g3_name} fluid src={`https://pocketrotom.pt/vods_test/${match.back1_p1_g3_id}.png`}></Image>
+								</td>
+								<td>
+									<Image alt={match.back2_p1_g3_name} fluid src={`https://pocketrotom.pt/vods_test/${match.back2_p1_g3_id}.png`}></Image>
 								</td>
 							</tr>
 							<tr>
-								<td colSpan={4}>
-									<Image alt={match.lead1_p2_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead1_p2_g3_id}.png`}></Image>
-									<Image alt={match.lead2_p2_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.lead2_p2_g3_id}.png`}></Image>
-									<Image alt={match.back1_p2_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back1_p2_g3_id}.png`}></Image>
-									<Image alt={match.back2_p2_g3_name} height={'64px'} src={`https://pocketrotom.pt/vods_test/${match.back2_p2_g3_id}.png`}></Image>
+								<td>
+									<Image alt={match.lead1_p2_g3_name} fluid src={`https://pocketrotom.pt/vods_test/${match.lead1_p2_g3_id}.png`}></Image>
+								</td>
+								<td>
+									<Image alt={match.lead2_p2_g3_name} fluid src={`https://pocketrotom.pt/vods_test/${match.lead2_p2_g3_id}.png`}></Image>
+								</td>
+								<td>
+									<Image alt={match.back1_p2_g3_name} fluid src={`https://pocketrotom.pt/vods_test/${match.back1_p2_g3_id}.png`}></Image>
+								</td>
+								<td>
+									<Image alt={match.back2_p2_g3_name} fluid src={`https://pocketrotom.pt/vods_test/${match.back2_p2_g3_id}.png`}></Image>
 								</td>
 							</tr></>}
 						</>}

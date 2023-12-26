@@ -33,7 +33,7 @@ export default function Home() {
 				{allFormats.map((match) => (
 					<Col xs={12} md={6} key={match[1][0].format_id}>
 						<h1>{match[1][0].format_name}</h1>
-						<Table striped bordered>
+						<Table responsive striped bordered size='sm' variant='light'>
 							<thead>
 								<tr>
 									<th>Tournament</th>
