@@ -70,17 +70,17 @@ export default function AddMatch() {
 	// eslint-disable-next-line no-unused-vars
 	const [pokemonP2Names, setPokemonP2Names] = React.useState([{id: -1, name: ''}, {id: -1, name: ''}, {id: -1, name: ''}, {id: -1, name: ''}, {id: -1, name: ''}, {id: -1, name: ''} ]);
 
-	const [pokemonP1LeadG1, setPokemonP1LeadG1] = React.useState([-1, -1, -1,-1]);
+	const [pokemonP1LeadG1, setPokemonP1LeadG1] = React.useState([0, 0, 0, 0]);
 
-	const [pokemonP2LeadG1, setPokemonP2LeadG1] = React.useState([-1, -1, -1,-1]);
+	const [pokemonP2LeadG1, setPokemonP2LeadG1] = React.useState([0, 0, 0, 0]);
 
-	const [pokemonP1LeadG2, setPokemonP1LeadG2] = React.useState([-1, -1, -1,-1]);
+	const [pokemonP1LeadG2, setPokemonP1LeadG2] = React.useState([0, 0, 0, 0]);
 
-	const [pokemonP2LeadG2, setPokemonP2LeadG2] = React.useState([-1, -1, -1,-1]);
+	const [pokemonP2LeadG2, setPokemonP2LeadG2] = React.useState([0, 0, 0, 0]);
 
-	const [pokemonP1LeadG3, setPokemonP1LeadG3] = React.useState([-1, -1, -1,-1]);
+	const [pokemonP1LeadG3, setPokemonP1LeadG3] = React.useState([0, 0, 0, 0]);
 
-	const [pokemonP2LeadG3, setPokemonP2LeadG3] = React.useState([-1, -1, -1,-1]);
+	const [pokemonP2LeadG3, setPokemonP2LeadG3] = React.useState([0, 0, 0, 0]);
 
 	const [hadG2, setHadG2] = React.useState(false);
 
@@ -132,68 +132,28 @@ export default function AddMatch() {
 		setPokemonP2LeadG1(temp);
 	}
 
-	function changePokemon1p1LeadG2(e) {
-		setPokemonP1LeadG2([e.target.value, pokemonP1LeadG2[1], pokemonP1LeadG2[2], pokemonP1LeadG2[3]]);
+	function changeP1LeadG2(e, index) {
+		let temp = [...pokemonP1LeadG2];
+		temp[index] = e.target.value;
+		setPokemonP1LeadG2(temp);
 	}
 
-	function changePokemon2p1LeadG2(e) {
-		setPokemonP1LeadG2([pokemonP1LeadG2[0], e.target.value, pokemonP1LeadG2[2], pokemonP1LeadG2[3]]);
+	function changeP2LeadG2(e, index) {
+		let temp = [...pokemonP2LeadG2];
+		temp[index] = e.target.value;
+		setPokemonP2LeadG2(temp);
 	}
 
-	function changePokemon3p1LeadG2(e) {
-		setPokemonP1LeadG2([pokemonP1LeadG2[0], pokemonP1LeadG2[1], e.target.value, pokemonP1LeadG2[3]]);
+	function changeP1LeadG3(e, index) {
+		let temp = [...pokemonP1LeadG3];
+		temp[index] = e.target.value;
+		setPokemonP1LeadG3(temp);
 	}
 
-	function changePokemon4p1LeadG2(e) {
-		setPokemonP1LeadG2([pokemonP1LeadG2[0], pokemonP1LeadG2[1], pokemonP1LeadG2[2], e.target.value]);
-	}
-
-	function changePokemon1p2LeadG2(e) {
-		setPokemonP2LeadG2([e.target.value, pokemonP2LeadG2[1], pokemonP2LeadG2[2], pokemonP2LeadG2[3]]);
-	}
-
-	function changePokemon2p2LeadG2(e) {
-		setPokemonP2LeadG2([pokemonP2LeadG2[0], e.target.value, pokemonP2LeadG2[2], pokemonP2LeadG2[3]]);
-	}
-
-	function changePokemon3p2LeadG2(e) {
-		setPokemonP2LeadG2([pokemonP2LeadG2[0], pokemonP2LeadG2[1], e.target.value, pokemonP2LeadG2[3]]);
-	}
-
-	function changePokemon4p2LeadG2(e) {
-		setPokemonP2LeadG2([pokemonP2LeadG2[0], pokemonP2LeadG2[1], pokemonP2LeadG2[2], e.target.value]);
-	}
-
-	function changePokemon1p1LeadG3(e) {
-		setPokemonP1LeadG3([e.target.value, pokemonP1LeadG3[1], pokemonP1LeadG3[2], pokemonP1LeadG3[3]]);
-	}
-
-	function changePokemon2p1LeadG3(e) {
-		setPokemonP1LeadG3([pokemonP1LeadG3[0], e.target.value, pokemonP1LeadG3[2], pokemonP1LeadG3[3]]);
-	}
-
-	function changePokemon3p1LeadG3(e) {
-		setPokemonP1LeadG3([pokemonP1LeadG3[0], pokemonP1LeadG3[1], e.target.value, pokemonP1LeadG3[3]]);
-	}
-
-	function changePokemon4p1LeadG3(e) {
-		setPokemonP1LeadG3([pokemonP1LeadG3[0], pokemonP1LeadG3[1], pokemonP1LeadG3[2], e.target.value]);
-	}
-
-	function changePokemon1p2LeadG3(e) {
-		setPokemonP2LeadG3([e.target.value, pokemonP2LeadG3[1], pokemonP2LeadG3[2], pokemonP2LeadG3[3]]);
-	}
-
-	function changePokemon2p2LeadG3(e) {
-		setPokemonP2LeadG3([pokemonP2LeadG3[0], e.target.value, pokemonP2LeadG3[2], pokemonP2LeadG3[3]]);
-	}
-
-	function changePokemon3p2LeadG3(e) {
-		setPokemonP2LeadG3([pokemonP2LeadG3[0], pokemonP2LeadG3[1], e.target.value, pokemonP2LeadG3[3]]);
-	}
-
-	function changePokemon4p2LeadG3(e) {
-		setPokemonP2LeadG3([pokemonP2LeadG3[0], pokemonP2LeadG3[1], pokemonP2LeadG3[2], e.target.value]);
+	function changeP2LeadG3(e, index) {
+		let temp = [...pokemonP2LeadG3];
+		temp[index] = e.target.value;
+		setPokemonP2LeadG3(temp);
 	}
 
 	async function submitData() {
@@ -220,7 +180,7 @@ export default function AddMatch() {
 				player1ToSubmit = newPlayer[0];
 			//Submit New Player
 			} catch (error) {
-				alert('Error adding player');
+				alert('Error adding player 1');
 				console.log(error);
 				return;
 			}
@@ -235,7 +195,9 @@ export default function AddMatch() {
 				player2ToSubmit = newPlayer[0];
 			//Submit New Player
 			} catch (error) {
+				alert('Error adding player 2');
 				console.log(error);
+				return;
 			}
 			
 		}
@@ -248,7 +210,9 @@ export default function AddMatch() {
 				caster1ToSubmit = newPlayer[0];
 			//Submit New Caster
 			} catch (error) {
+				alert('Error adding caster 1');
 				console.log(error);
+				return;
 			}
 			
 		}
@@ -261,9 +225,20 @@ export default function AddMatch() {
 				caster2ToSubmit = newPlayer[0];
 			//Submit New Caster
 			} catch (error) {
+				alert('Error adding caster 2');
 				console.log(error);
+				return;
 			}
 			
+		}
+		if (!hadG2){
+			setPokemonP1LeadG2([-1, -1, -1, -1]);
+			setPokemonP2LeadG3([-1, -1, -1, -1]);
+		}
+
+		if (!hadG3){
+			setPokemonP1LeadG3([-1, -1, -1, -1]);
+			setPokemonP2LeadG3([-1, -1, -1, -1]);
 		}
 		//TODO
 		try {
@@ -323,763 +298,765 @@ export default function AddMatch() {
 			}
 		} catch (error) {
 			console.log(error);
-		}
-		
+		}	
 	}
 
 	// eslint-disable-next-line no-unreachable
 	return (
 		<Container>
-			<h2>Where is this Tournament?</h2>
-			<Row>
-				<Col className='formDivs'>
-					<Form.Select className='formDivs' aria-label="Select a Tournament" onChange={(e) => setTournament(e.target.value)}>
-						<option value="-1">Select a tournament</option>
-						{events.map((event) => {
-							return <option key={event.id} value={event.id} >{event.name}</option>;
-						})}
-						<option value='0'>Add a new tournament</option>
-					</Form.Select>
-				</Col>
-			</Row>
-			{tournament == 0 && (
-				<>
-					<h3>New tournament Info</h3>
-					<Row>
-						<Col className='formDivs'>
-							<Form.Group  className="mb-3 px-0" controlId="newTournamentName">
-								<FloatingLabel
-									controlId="floatingInput"
-									label="New Tournament Name"
-									className="mb-3">
-									<Form.Control type="text" value={tournamentName} onChange={(e) => setTournamentName(e.target.value)} />
-								</FloatingLabel>
-							</Form.Group>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Group className="mb-3" controlId="tournamentStartDate">
-								<FloatingLabel
-									controlId="floatingInput"
-									label="Tournament Start Date"
-									id="tournamentStartDate"
-									className="mb-3">
-									<Form.Control
-										type="date"
-										name="tournamentStartDate"
-										onChange={(e) => changeTournamentStartDate(e)}
-									/>
-								</FloatingLabel>
-							</Form.Group>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Group className="mb-3" controlId="tournamentEndDate">
-								<FloatingLabel
-									controlId="floatingInput"
-									label="Tournament End Date"
-									id="tournamentEndDate"
-									className="mb-3">
-									<Form.Control
-										type="date"
-										name="tournamentEndDate"
-										onChange={(e) => changeTournamentEndDate(e)}
-									/>
-								</FloatingLabel>
-							</Form.Group>
-						</Col>
-					</Row>
-					<Row>
-						<Col className='formDivs'>
-							<Form.Group className='p-0' controlId="tournamentLocation">
-								<FloatingLabel
-									controlId="floatingInput"
-									label="Tournament Location">
-									<Form.Control type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
-								</FloatingLabel>
-							</Form.Group>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Format" onChange={(e) => setFormat(e.target.value)}>
-								<option value="-1">Select a Format</option>
-								{formats.map((format) => {
-									return <option key={format.id} value={format.id} >{format.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Country" onChange={(e) => setCountry(e.target.value)}>
-								<option value="-1">Select a Country</option>
-								{countries.map((country) => {
-									return <option key={country.id} value={country.id} >{country.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-					</Row>
-				</>
-			)}
-			{(true) && (
-				<>
-					<h3>Players Info</h3>
-					<h4>Player 1</h4>
-					<Row>
-						<Col className='formDivs'>
-							<Form.Select className='formDivs' aria-label="Select a Player" onChange={(e) => setPlayer1(e.target.value)}>
-								<option value="-1">Select a Player</option>
-								<option value='0'>Add a new player</option>
-								{players.map((player) => {
-									return <option key={player.id} value={player.id} >{player.player_name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-					</Row>
-					{player1 == 0 && (
+			<Form>
+				<h2>Where is this Tournament?</h2>
+				<Row>
+					<Col className='formDivs'>
+						<Form.Select name='tournamentID' className='formDivs' aria-label="Select a Tournament" onChange={(e) => setTournament(e.target.value)}>
+							<option value="-1">Select a tournament</option>
+							{events.map((event) => {
+								return <option key={event.id} value={event.id} >{event.name}</option>;
+							})}
+							<option value='0'>Add a new tournament</option>
+						</Form.Select>
+					</Col>
+				</Row>
+				{tournament == 0 && (
+					<>
+						<h3>New tournament Info</h3>
 						<Row>
 							<Col className='formDivs'>
-								<Form.Group  className="mb-3 px-0" controlId="newPlayer1Name">
+								<Form.Group  className="mb-3 px-0" controlId="newTournamentName">
 									<FloatingLabel
 										controlId="floatingInput"
-										label="New Player Name"
+										label="New Tournament Name"
 										className="mb-3">
-										<Form.Control type="text" value={player1Name} onChange={(e) => setPlayer1Name(e.target.value)} />
+										<Form.Control type="text" name="tournamentName" value={tournamentName} onChange={(e) => setTournamentName(e.target.value)} />
 									</FloatingLabel>
 								</Form.Group>
 							</Col>
 							<Col className='formDivs'>
-								<Form.Group  className="mb-3" controlId="newPlayer1Twitter">
+								<Form.Group className="mb-3" controlId="tournamentStartDate">
 									<FloatingLabel
 										controlId="floatingInput"
-										label="New Player X/Twitter (without @)"
+										label="Tournament Start Date"
+										id="tournamentStartDate"
 										className="mb-3">
-										<Form.Control type="text" value={player1Twitter} onChange={(e) => setPlayer1Twitter(e.target.value)} />
+										<Form.Control
+											type="date"
+											placeholder='YYYY-MM-DD'
+											name="tournamentStartDate"
+											onChange={(e) => changeTournamentStartDate(e)}
+										/>
 									</FloatingLabel>
 								</Form.Group>
 							</Col>
 							<Col className='formDivs'>
-								<Form.Select size="lg" aria-label="Select a Country" onChange={(e) => setPlayer1Country(e.target.value)}>
+								<Form.Group className="mb-3" controlId="tournamentEndDate">
+									<FloatingLabel
+										controlId="floatingInput"
+										label="Tournament End Date"
+										id="tournamentEndDate"
+										className="mb-3">
+										<Form.Control
+											type="date"
+											name="tournamentEndDate"
+											onChange={(e) => changeTournamentEndDate(e)}
+										/>
+									</FloatingLabel>
+								</Form.Group>
+							</Col>
+						</Row>
+						<Row>
+							<Col className='formDivs'>
+								<Form.Group className='p-0' controlId="tournamentLocation">
+									<FloatingLabel
+										controlId="floatingInput"
+										label="Tournament Location">
+										<Form.Control name="tournamentLocation" type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
+									</FloatingLabel>
+								</Form.Group>
+							</Col>
+							<Col className='formDivs'>
+								<Form.Select size="lg" name="tournamentFormat" aria-label="Select a Format" onChange={(e) => setFormat(e.target.value)}>
+									<option value="-1">Select a Format</option>
+									{formats.map((format) => {
+										return <option key={format.id} value={format.id} >{format.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+							<Col className='formDivs'>
+								<Form.Select size="lg" name="tournamentCountry" aria-label="Select a Country" onChange={(e) => setCountry(e.target.value)}>
 									<option value="-1">Select a Country</option>
 									{countries.map((country) => {
 										return <option key={country.id} value={country.id} >{country.name}</option>;
 									})}
 								</Form.Select>
 							</Col>
-							<Col>
-								<Form.Group className="mb-3" controlId="player1caster">
-									<Form.Check 
-										type="switch"
-										id="player1caster"
-										label="Is this player also a caster?"
-										checked={player1Caster}
-										onChange={() => setPlayer1Caster(!player1Caster)}
-									/>
-								</Form.Group>
-							</Col>	
 						</Row>
-					)}
-					<h4>Player 2</h4>
-					<Row>
-						<Col className='formDivs'>
-							<Form.Select className='formDivs' aria-label="Select a Player" onChange={(e) => setPlayer2(e.target.value)}>
-								<option value="-1">Select a Player</option>
-								<option value='0'>Add a new player</option>
-								{players.map((player) => {
-									return <option key={player.id} value={player.id} >{player.player_name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-					</Row>
-					{player2 == 0 && (
+					</>
+				)}
+				{(true) && (
+					<>
+						<h3>Players Info</h3>
+						<h4>Player 1</h4>
 						<Row>
 							<Col className='formDivs'>
-								<Form.Group  className="mb-3 px-0" controlId="newPlayer2Name">
-									<FloatingLabel
-										controlId="floatingInput"
-										label="New Player Name"
-										className="mb-3">
-										<Form.Control type="text" value={player2Name} onChange={(e) => setPlayer2Name(e.target.value)} />
-									</FloatingLabel>
-								</Form.Group>
-							</Col>
-							<Col className='formDivs'>
-								<Form.Group  className="mb-3" controlId="newPlayer2Twitter">
-									<FloatingLabel
-										controlId="floatingInput"
-										label="New Player X/Twitter (without @)"
-										className="mb-3">
-										<Form.Control type="text" value={player2Twitter} onChange={(e) => setPlayer2Twitter(e.target.value)} />
-									</FloatingLabel>
-								</Form.Group>
-							</Col>
-							<Col className='formDivs'>
-								<Form.Select size="lg" aria-label="Select a Country" onChange={(e) => setPlayer2Country(e.target.value)}>
-									<option value="-1">Select a Country</option>
-									{countries.map((country) => {
-										return <option key={country.id} value={country.id} >{country.name}</option>;
-									})}
-								</Form.Select>
-							</Col>
-							<Col>
-								<Form.Group className="mb-3" controlId="player2caster">
-									<Form.Check 
-										type="switch"
-										id="player2caster"
-										label="Is this player also a caster?"
-										checked={player2Caster}
-										onChange={() => setPlayer2Caster(!player2Caster)}
-									/>
-								</Form.Group>
-							</Col>	
-						</Row>
-					)}
-					<h4>Caster 1</h4>
-					<Row>
-						<Col className='formDivs'>
-							<Form.Select className='formDivs' aria-label="Select a Player" onChange={(e) => setCaster1(e.target.value)}>
-								<option value="-1">Select a Caster</option>
-								<option value='0'>Add a new Caster</option>
-								{players.map((player) => {
-									if (player.is_caster == 1) {
+								<Form.Select className='formDivs' aria-label="Select a Player" onChange={(e) => setPlayer1(e.target.value)}>
+									<option value="-1">Select a Player</option>
+									<option value='0'>Add a new player</option>
+									{players.map((player) => {
 										return <option key={player.id} value={player.id} >{player.player_name}</option>;
-									}
-								})}
-							</Form.Select>
-						</Col>
-					</Row>
-					{caster1 == 0 && (
-						<Row>
-							<Col className='formDivs'>
-								<Form.Group  className="mb-3 px-0" controlId="newCaster1Name">
-									<FloatingLabel
-										controlId="floatingInput"
-										label="New Caster Name"
-										className="mb-3">
-										<Form.Control type="text" value={caster1Name} onChange={(e) => setCaster1Name(e.target.value)} />
-									</FloatingLabel>
-								</Form.Group>
-							</Col>
-							<Col className='formDivs'>
-								<Form.Group  className="mb-3" controlId="newCaster1Twitter">
-									<FloatingLabel
-										controlId="floatingInput"
-										label="New Caster X/Twitter (without @)"
-										className="mb-3">
-										<Form.Control type="text" value={caster1Twitter} onChange={(e) => setCaster1Twitter(e.target.value)} />
-									</FloatingLabel>
-								</Form.Group>
-							</Col>
-							<Col className='formDivs'>
-								<Form.Select size="lg" aria-label="Select a Country" onChange={(e) => setCaster1Country(e.target.value)}>
-									<option value="-1">Select a Country</option>
-									{countries.map((country) => {
-										return <option key={country.id} value={country.id} >{country.name}</option>;
 									})}
 								</Form.Select>
 							</Col>
 						</Row>
-					)}
-					<h4>Caster 2</h4>
-					<Row>
-						<Col className='formDivs'>
-							<Form.Select className='formDivs' aria-label="Select a Player" onChange={(e) => setCaster2(e.target.value)}>
-								<option value="-1">Select a Caster</option>
-								<option value='0'>Add a new Caster</option>
-								{players.map((player) => {
-									if (player.is_caster == 1) {
-										return <option key={player.id} value={player.id} >{player.player_name}</option>;
-									}
-								})}
-							</Form.Select>
-						</Col>
-					</Row>
-					{caster2 == 0 && (
-						<Row>
-							<Col className='formDivs'>
-								<Form.Group  className="mb-3 px-0" controlId="newCaster2Name">
-									<FloatingLabel
-										controlId="floatingInput"
-										label="New Caster Name"
-										className="mb-3">
-										<Form.Control type="text" value={caster2Name} onChange={(e) => setCaster2Name(e.target.value)} />
-									</FloatingLabel>
-								</Form.Group>
-							</Col>
-							<Col className='formDivs'>
-								<Form.Group  className="mb-3" controlId="newCaster2Twitter">
-									<FloatingLabel
-										controlId="floatingInput"
-										label="New Caster X/Twitter (without @)"
-										className="mb-3">
-										<Form.Control type="text" value={caster2Twitter} onChange={(e) => setCaster2Twitter(e.target.value)} />
-									</FloatingLabel>
-								</Form.Group>
-							</Col>
-							<Col className='formDivs'>
-								<Form.Select size="lg" aria-label="Select a Country" onChange={(e) => setCaster2Country(e.target.value)}>
-									<option value="-1">Select a Country</option>
-									{countries.map((country) => {
-										return <option key={country.id} value={country.id} >{country.name}</option>;
-									})}
-								</Form.Select>
-							</Col>
-						</Row>
-					)}
-				</>
-			)
-			}
-			{(true) && (
-				<>
-					<h3>Match Info</h3>
-					<h4>Pokémon Player 1</h4>
-					<Row>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP1(e,0)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemon.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP1(e,1)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemon.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP1(e,2)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemon.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-					</Row>
-					<Row>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP1(e,3)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemon.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP1(e,4)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemon.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP1(e,5)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemon.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-					</Row>
-					<h4>Pokémon Player 2</h4>
-					<Row>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP2(e,0)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemon.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP2(e,1)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemon.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP2(e,2)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemon.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-					</Row>
-					<Row>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP2(e,3)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemon.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP2(e,4)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemon.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP2(e,5)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemon.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-					</Row>
-				</>
-			)}
-			{(!(pokemonP1Names.some(item => item.id == -1)) && !(pokemonP2Names.some(item => item.id == -1))) && (
-				<>
-					<h3>{'Game 1 Leads/Backs  (Leave Blank if a Pokémon didn\'t appeared in a match)'}</h3>
-					<h5>Player 1</h5>
-					<h6>Lead</h6>
-					<Row>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG1(e, 0)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemonP1Names.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG1(e, 1)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemonP1Names.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-					</Row>
-					<h6>Back</h6>
-					<Row>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG1(e, 2)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemonP1Names.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG1(e, 3)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemonP1Names.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-					</Row>
-					<h5>Player 2</h5>
-					<h6>Lead</h6>
-					<Row>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG1(e, 0)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemonP2Names.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG1(e, 1)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemonP2Names.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-					</Row>
-					<h6>Back</h6>
-					<Row>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG1(e, 2)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemonP2Names.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG1(e, 3)}>
-								<option value="-1">Select a Pokémon</option>
-								{pokemonP2Names.map((pokemonSelected) => {
-									return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-								})}
-							</Form.Select>
-						</Col>
-					</Row>
-					<Row>
-						<Col>
-							<Form.Group className="mb-3" controlId="g2">
-								<Form.Check 
-									type="switch"
-									id="g2"
-									label="Did this game had a G2"
-									checked={hadG2}
-									onChange={() => setHadG2(!hadG2)}
-								/>
-							</Form.Group>
-						</Col>	
-					</Row>
-					{hadG2 && (
-						<>
-							<h3>{'Game 2 Leads/Backs  (Leave Blank if a Pokémon didn\'t appeared in a match)'}</h3>
-							<h5>Player 1</h5>
-							<h6>Lead</h6>
+						{player1 == 0 && (
 							<Row>
 								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon1p1LeadG2}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP1Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-										})}
-									</Form.Select>
+									<Form.Group  className="mb-3 px-0" controlId="newPlayer1Name">
+										<FloatingLabel
+											controlId="floatingInput"
+											label="New Player Name"
+											className="mb-3">
+											<Form.Control type="text" value={player1Name} onChange={(e) => setPlayer1Name(e.target.value)} />
+										</FloatingLabel>
+									</Form.Group>
 								</Col>
 								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon2p1LeadG2}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP1Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-										})}
-									</Form.Select>
-								</Col>
-							</Row>
-							<h6>Back</h6>
-							<Row>
-								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon3p1LeadG2}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP1Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-										})}
-									</Form.Select>
+									<Form.Group  className="mb-3" controlId="newPlayer1Twitter">
+										<FloatingLabel
+											controlId="floatingInput"
+											label="New Player X/Twitter (without @)"
+											className="mb-3">
+											<Form.Control type="text" value={player1Twitter} onChange={(e) => setPlayer1Twitter(e.target.value)} />
+										</FloatingLabel>
+									</Form.Group>
 								</Col>
 								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon4p1LeadG2}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP1Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									<Form.Select size="lg" aria-label="Select a Country" onChange={(e) => setPlayer1Country(e.target.value)}>
+										<option value="-1">Select a Country</option>
+										{countries.map((country) => {
+											return <option key={country.id} value={country.id} >{country.name}</option>;
 										})}
 									</Form.Select>
 								</Col>
-							</Row>
-							<h5>Player 2</h5>
-							<h6>Lead</h6>
-							<Row>
-								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon1p2LeadG2}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP2Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-										})}
-									</Form.Select>
-								</Col>
-								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon2p2LeadG2}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP2Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-										})}
-									</Form.Select>
-								</Col>
-							</Row>
-							<h6>Back</h6>
-							<Row>
-								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon3p2LeadG2}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP2Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-										})}
-									</Form.Select>
-								</Col>
-								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon4p2LeadG2}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP2Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-										})}
-									</Form.Select>
-								</Col>
-							</Row>
-							<Row>
 								<Col>
-									<Form.Group className="mb-3" controlId="g3">
+									<Form.Group className="mb-3" controlId="player1caster">
 										<Form.Check 
 											type="switch"
-											id="g3"
-											label="Did this game had a G3"
-											checked={hadG3}
-											onChange={() => setHadG3(!hadG3)}
+											id="player1caster"
+											label="Is this player also a caster?"
+											checked={player1Caster}
+											onChange={() => setPlayer1Caster(!player1Caster)}
 										/>
 									</Form.Group>
 								</Col>	
 							</Row>
-						</>
-					)
-					}
-					{hadG3 && (
-						<>
-							<h3>Game 3 Leads/Backs (Leave Blank if no G3 happened)</h3>
-							<h5>Player 1</h5>
-							<h6>Lead</h6>
+						)}
+						<h4>Player 2</h4>
+						<Row>
+							<Col className='formDivs'>
+								<Form.Select className='formDivs' aria-label="Select a Player" onChange={(e) => setPlayer2(e.target.value)}>
+									<option value="-1">Select a Player</option>
+									<option value='0'>Add a new player</option>
+									{players.map((player) => {
+										return <option key={player.id} value={player.id} >{player.player_name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+						</Row>
+						{player2 == 0 && (
 							<Row>
 								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon1p1LeadG3}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP1Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									<Form.Group  className="mb-3 px-0" controlId="newPlayer2Name">
+										<FloatingLabel
+											controlId="floatingInput"
+											label="New Player Name"
+											className="mb-3">
+											<Form.Control type="text" value={player2Name} onChange={(e) => setPlayer2Name(e.target.value)} />
+										</FloatingLabel>
+									</Form.Group>
+								</Col>
+								<Col className='formDivs'>
+									<Form.Group  className="mb-3" controlId="newPlayer2Twitter">
+										<FloatingLabel
+											controlId="floatingInput"
+											label="New Player X/Twitter (without @)"
+											className="mb-3">
+											<Form.Control type="text" value={player2Twitter} onChange={(e) => setPlayer2Twitter(e.target.value)} />
+										</FloatingLabel>
+									</Form.Group>
+								</Col>
+								<Col className='formDivs'>
+									<Form.Select size="lg" aria-label="Select a Country" onChange={(e) => setPlayer2Country(e.target.value)}>
+										<option value="-1">Select a Country</option>
+										{countries.map((country) => {
+											return <option key={country.id} value={country.id} >{country.name}</option>;
 										})}
 									</Form.Select>
 								</Col>
+								<Col>
+									<Form.Group className="mb-3" controlId="player2caster">
+										<Form.Check 
+											type="switch"
+											id="player2caster"
+											label="Is this player also a caster?"
+											checked={player2Caster}
+											onChange={() => setPlayer2Caster(!player2Caster)}
+										/>
+									</Form.Group>
+								</Col>	
+							</Row>
+						)}
+						<h4>Caster 1</h4>
+						<Row>
+							<Col className='formDivs'>
+								<Form.Select className='formDivs' aria-label="Select a Player" onChange={(e) => setCaster1(e.target.value)}>
+									<option value="-1">Select a Caster</option>
+									<option value='0'>Add a new Caster</option>
+									{players.map((player) => {
+										if (player.is_caster == 1) {
+											return <option key={player.id} value={player.id} >{player.player_name}</option>;
+										}
+									})}
+								</Form.Select>
+							</Col>
+						</Row>
+						{caster1 == 0 && (
+							<Row>
 								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon2p1LeadG3}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP1Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									<Form.Group  className="mb-3 px-0" controlId="newCaster1Name">
+										<FloatingLabel
+											controlId="floatingInput"
+											label="New Caster Name"
+											className="mb-3">
+											<Form.Control type="text" value={caster1Name} onChange={(e) => setCaster1Name(e.target.value)} />
+										</FloatingLabel>
+									</Form.Group>
+								</Col>
+								<Col className='formDivs'>
+									<Form.Group  className="mb-3" controlId="newCaster1Twitter">
+										<FloatingLabel
+											controlId="floatingInput"
+											label="New Caster X/Twitter (without @)"
+											className="mb-3">
+											<Form.Control type="text" value={caster1Twitter} onChange={(e) => setCaster1Twitter(e.target.value)} />
+										</FloatingLabel>
+									</Form.Group>
+								</Col>
+								<Col className='formDivs'>
+									<Form.Select size="lg" aria-label="Select a Country" onChange={(e) => setCaster1Country(e.target.value)}>
+										<option value="-1">Select a Country</option>
+										{countries.map((country) => {
+											return <option key={country.id} value={country.id} >{country.name}</option>;
 										})}
 									</Form.Select>
 								</Col>
 							</Row>
-							<h6>Back</h6>
+						)}
+						<h4>Caster 2</h4>
+						<Row>
+							<Col className='formDivs'>
+								<Form.Select className='formDivs' aria-label="Select a Player" onChange={(e) => setCaster2(e.target.value)}>
+									<option value="-1">Select a Caster</option>
+									<option value='0'>Add a new Caster</option>
+									{players.map((player) => {
+										if (player.is_caster == 1) {
+											return <option key={player.id} value={player.id} >{player.player_name}</option>;
+										}
+									})}
+								</Form.Select>
+							</Col>
+						</Row>
+						{caster2 == 0 && (
 							<Row>
 								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon3p1LeadG3}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP1Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-										})}
-									</Form.Select>
+									<Form.Group  className="mb-3 px-0" controlId="newCaster2Name">
+										<FloatingLabel
+											controlId="floatingInput"
+											label="New Caster Name"
+											className="mb-3">
+											<Form.Control type="text" value={caster2Name} onChange={(e) => setCaster2Name(e.target.value)} />
+										</FloatingLabel>
+									</Form.Group>
 								</Col>
 								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon4p1LeadG3}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP1Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									<Form.Group  className="mb-3" controlId="newCaster2Twitter">
+										<FloatingLabel
+											controlId="floatingInput"
+											label="New Caster X/Twitter (without @)"
+											className="mb-3">
+											<Form.Control type="text" value={caster2Twitter} onChange={(e) => setCaster2Twitter(e.target.value)} />
+										</FloatingLabel>
+									</Form.Group>
+								</Col>
+								<Col className='formDivs'>
+									<Form.Select size="lg" aria-label="Select a Country" onChange={(e) => setCaster2Country(e.target.value)}>
+										<option value="-1">Select a Country</option>
+										{countries.map((country) => {
+											return <option key={country.id} value={country.id} >{country.name}</option>;
 										})}
 									</Form.Select>
 								</Col>
 							</Row>
-							<h5>Player 2</h5>
-							<h6>Lead</h6>
-							<Row>
-								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon1p2LeadG3}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP2Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-										})}
-									</Form.Select>
-								</Col>
-								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon2p2LeadG3}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP2Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-										})}
-									</Form.Select>
-								</Col>
-							</Row>
-							<h6>Back</h6>
-							<Row>
-								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon3p2LeadG3}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP2Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-										})}
-									</Form.Select>
-								</Col>
-								<Col className='formDivs'>
-									<Form.Select size="lg" aria-label="Select a Pokémon" onChange={changePokemon4p2LeadG3}>
-										<option value="-1">Select a Pokémon</option>
-										{pokemonP2Names.map((pokemonSelected) => {
-											return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
-										})}
-									</Form.Select>
-								</Col>
-							</Row>
-						</>
-					)}
-				</>
-			)}
-			{(true) && (
-				<>
-					<h3>Match Info</h3>
-					<Row>
-						<Col className='formDivs'>
-							<h6>Age Division</h6>
-							<Form.Check
-								inline
-								label="Juniors"
-								name="ageDivision"
-								type='radio'
-								id='ageDivisonJR'
-								onChange={() => setAgeDivision('J')} />
-							<Form.Check
-								inline
-								label="Seniors"
-								name="ageDivision"
-								type='radio'
-								id='ageDivisonSR'
-								onChange={() => setAgeDivision('S')} />
-							<Form.Check
-								inline
-								label="Masters"
-								name="ageDivision"
-								type='radio'
-								id='ageDivisonMA'
-								onChange={() => setAgeDivision('M')}
-								checked />
-						</Col>
-						<Col className='formDivs'>
-							<Form.Group className="mb-3" controlId="matchDate">
-								<FloatingLabel
-									controlId="floatingInput"
-									label="Match Date"
-									id="matchDate"
-									className="mb-3">
-									<Form.Control
-										type="date"
-										name="matchDate"
-										value={matchDate}
-										onChange={(e) => setMatchDate(e.target.value)}
+						)}
+					</>
+				)
+				}
+				{(true) && (
+					<>
+						<h3>Match Info</h3>
+						<h4>Pokémon Player 1</h4>
+						<Row>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP1(e,0)}>
+									<option value="-1">Select a Pokémon</option>
+									{pokemon.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP1(e,1)}>
+									<option value="-1">Select a Pokémon</option>
+									{pokemon.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP1(e,2)}>
+									<option value="-1">Select a Pokémon</option>
+									{pokemon.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+						</Row>
+						<Row>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP1(e,3)}>
+									<option value="-1">Select a Pokémon</option>
+									{pokemon.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP1(e,4)}>
+									<option value="-1">Select a Pokémon</option>
+									{pokemon.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP1(e,5)}>
+									<option value="-1">Select a Pokémon</option>
+									{pokemon.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+						</Row>
+						<h4>Pokémon Player 2</h4>
+						<Row>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP2(e,0)}>
+									<option value="-1">Select a Pokémon</option>
+									{pokemon.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP2(e,1)}>
+									<option value="-1">Select a Pokémon</option>
+									{pokemon.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP2(e,2)}>
+									<option value="-1">Select a Pokémon</option>
+									{pokemon.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+						</Row>
+						<Row>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP2(e,3)}>
+									<option value="-1">Select a Pokémon</option>
+									{pokemon.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP2(e,4)}>
+									<option value="-1">Select a Pokémon</option>
+									{pokemon.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changePokemonP2(e,5)}>
+									<option value="-1">Select a Pokémon</option>
+									{pokemon.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+						</Row>
+					</>
+				)}
+				{(!(pokemonP1Names.some(item => item.id == -1)) && !(pokemonP2Names.some(item => item.id == -1))) && (
+					<>
+						<h3>{'Game 1 Leads/Backs  (Leave Blank if a Pokémon didn\'t appeared in a match)'}</h3>
+						<h5>Player 1</h5>
+						<h6>Lead</h6>
+						<Row>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG1(e, 0)}>
+									<option value="0">Select a Pokémon</option>
+									{pokemonP1Names.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG1(e, 1)}>
+									<option value="0">Select a Pokémon</option>
+									{pokemonP1Names.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+						</Row>
+						<h6>Back</h6>
+						<Row>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG1(e, 2)}>
+									<option value="0">Select a Pokémon</option>
+									{pokemonP1Names.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG1(e, 3)}>
+									<option value="0">Select a Pokémon</option>
+									{pokemonP1Names.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+						</Row>
+						<h5>Player 2</h5>
+						<h6>Lead</h6>
+						<Row>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG1(e, 0)}>
+									<option value="0">Select a Pokémon</option>
+									{pokemonP2Names.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG1(e, 1)}>
+									<option value="0">Select a Pokémon</option>
+									{pokemonP2Names.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+						</Row>
+						<h6>Back</h6>
+						<Row>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG1(e, 2)}>
+									<option value="0">Select a Pokémon</option>
+									{pokemonP2Names.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+							<Col className='formDivs'>
+								<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG1(e, 3)}>
+									<option value="0">Select a Pokémon</option>
+									{pokemonP2Names.map((pokemonSelected) => {
+										return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+									})}
+								</Form.Select>
+							</Col>
+						</Row>
+						<Row>
+							<Col>
+								<Form.Group className="mb-3" controlId="g2">
+									<Form.Check 
+										type="switch"
+										id="g2"
+										label="Did this game had a G2"
+										checked={hadG2}
+										onChange={() => setHadG2(!hadG2)}
 									/>
-								</FloatingLabel>
-							</Form.Group>
-						</Col>
-						<Col className='formDivs'>
-							<Form.Group  className="mb-3 px-0" controlId="round">
-								<FloatingLabel
-									controlId="floatingInput"
-									label="Round Name"
-									className="mb-3">
-									<Form.Control type="text" value={round} onChange={(e) => setRound(e.target.value)} />
-								</FloatingLabel>
-							</Form.Group>
-						</Col>
-						<Col className='px-0 formDivs'>
-							<Form.Group  className="mb-3 px-0" controlId="url">
-								<FloatingLabel
-									controlId="floatingInput"
-									label="Video URL"
-									className="mb-3">
-									<Form.Control type="text" value={url} onChange={(e) => setURL(e.target.value)} />
-								</FloatingLabel>
-							</Form.Group>
-						</Col>
-					</Row>
-					<Button variant="success" onClick={submitData}>Submit</Button>
-				</>
-			)}
+								</Form.Group>
+							</Col>	
+						</Row>
+						{hadG2 && (
+							<>
+								<h3>{'Game 2 Leads/Backs  (Leave Blank if a Pokémon didn\'t appeared in a match)'}</h3>
+								<h5>Player 1</h5>
+								<h6>Lead</h6>
+								<Row>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG2(e, 0)}>
+											<option value="-1">Select a Pokémon</option>
+											{pokemonP1Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG2(e, 1)}>
+											<option value="0">Select a Pokémon</option>
+											{pokemonP1Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+								</Row>
+								<h6>Back</h6>
+								<Row>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG2(e, 2)}>
+											<option value="0">Select a Pokémon</option>
+											{pokemonP1Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG2(e, 3)}>
+											<option value="0">Select a Pokémon</option>
+											{pokemonP1Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+								</Row>
+								<h5>Player 2</h5>
+								<h6>Lead</h6>
+								<Row>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG2(e, 0)}>
+											<option value="0">Select a Pokémon</option>
+											{pokemonP2Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG2(e, 1)}>
+											<option value="0">Select a Pokémon</option>
+											{pokemonP2Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+								</Row>
+								<h6>Back</h6>
+								<Row>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG2(e, 2)}>
+											<option value="0">Select a Pokémon</option>
+											{pokemonP2Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG2(e, 3)}>
+											<option value="0">Select a Pokémon</option>
+											{pokemonP2Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+								</Row>
+								<Row>
+									<Col>
+										<Form.Group className="mb-3" controlId="g3">
+											<Form.Check 
+												type="switch"
+												id="g3"
+												label="Did this game had a G3"
+												checked={hadG3}
+												onChange={() => setHadG3(!hadG3)}
+											/>
+										</Form.Group>
+									</Col>	
+								</Row>
+							</>
+						)
+						}
+						{hadG3 && (
+							<>
+								<h3>Game 3 Leads/Backs (Leave Blank if no G3 happened)</h3>
+								<h5>Player 1</h5>
+								<h6>Lead</h6>
+								<Row>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG3(e, 0)}>
+											<option value="0">Select a Pokémon</option>
+											{pokemonP1Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG3(e, 1)}>
+											<option value="0">Select a Pokémon</option>
+											{pokemonP1Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+								</Row>
+								<h6>Back</h6>
+								<Row>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG3(e, 2)}>
+											<option value="0">Select a Pokémon</option>
+											{pokemonP1Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP1LeadG3(e, 3)}>
+											<option value="0">Select a Pokémon</option>
+											{pokemonP1Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+								</Row>
+								<h5>Player 2</h5>
+								<h6>Lead</h6>
+								<Row>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG3(e, 0)}>
+											<option value="0">Select a Pokémon</option>
+											{pokemonP2Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG3(e, 1)}>
+											<option value="0">Select a Pokémon</option>
+											{pokemonP2Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+								</Row>
+								<h6>Back</h6>
+								<Row>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG3(e, 2)}>
+											<option value="0">Select a Pokémon</option>
+											{pokemonP2Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+									<Col className='formDivs'>
+										<Form.Select size="lg" aria-label="Select a Pokémon" onChange={(e) => changeP2LeadG3(e, 3)}>
+											<option value="0">Select a Pokémon</option>
+											{pokemonP2Names.map((pokemonSelected) => {
+												return <option key={pokemonSelected.id} value={pokemonSelected.id} >{pokemonSelected.name}</option>;
+											})}
+										</Form.Select>
+									</Col>
+								</Row>
+							</>
+						)}
+					</>
+				)}
+				{(true) && (
+					<>
+						<h3>Match Info</h3>
+						<Row>
+							<Col className='formDivs'>
+								<h6>Age Division</h6>
+								<Form.Check
+									inline
+									label="Juniors"
+									name="ageDivision"
+									type='radio'
+									id='ageDivisonJR'
+									onChange={() => setAgeDivision('J')} />
+								<Form.Check
+									inline
+									label="Seniors"
+									name="ageDivision"
+									type='radio'
+									id='ageDivisonSR'
+									onChange={() => setAgeDivision('S')} />
+								<Form.Check
+									inline
+									label="Masters"
+									name="ageDivision"
+									type='radio'
+									id='ageDivisonMA'
+									onChange={() => setAgeDivision('M')}
+									checked />
+							</Col>
+							<Col className='formDivs'>
+								<Form.Group className="mb-3" controlId="matchDate">
+									<FloatingLabel
+										controlId="floatingInput"
+										label="Match Date"
+										id="matchDate"
+										className="mb-3">
+										<Form.Control
+											type="date"
+											name="matchDate"
+											value={matchDate}
+											onChange={(e) => setMatchDate(e.target.value)}
+										/>
+									</FloatingLabel>
+								</Form.Group>
+							</Col>
+							<Col className='formDivs'>
+								<Form.Group  className="mb-3 px-0" controlId="round">
+									<FloatingLabel
+										controlId="floatingInput"
+										label="Round Name"
+										className="mb-3">
+										<Form.Control type="text" value={round} onChange={(e) => setRound(e.target.value)} />
+									</FloatingLabel>
+								</Form.Group>
+							</Col>
+							<Col className='px-0 formDivs'>
+								<Form.Group  className="mb-3 px-0" controlId="url">
+									<FloatingLabel
+										controlId="floatingInput"
+										label="Video URL"
+										className="mb-3">
+										<Form.Control type="text" value={url} onChange={(e) => setURL(e.target.value)} />
+									</FloatingLabel>
+								</Form.Group>
+							</Col>
+						</Row>
+						<Button variant="success" onClick={submitData}>Submit</Button>
+					</>
+				)}
+			</Form>
 			{tournament + '' + tournamentName + ' ' + tournamentStartDate + ' ' + tournamentEndDate + ' ' + location + ' ' + format + ' ' + country + ' ' + player1 + ' ' + player1Name + ' ' + player1Twitter + ' ' + player1Country + ' ' + player1Caster + ' ' + player2 + ' ' + player2Name + ' ' + player2Twitter + ' ' + player2Country + ' ' + player2Caster + ' ' + pokemonP1Names.some(item => item.id == -1) + ' ' + pokemonP2Names.some(item => item.id == -1) + ' ' + JSON.stringify(pokemonP1Names) + ' ' + JSON.stringify(pokemonP2Names) + '' + ageDivision + ' ' + matchDate + ' ' + round + ' ' + url}
 			{'Casters: ' + caster1 + ' ' + caster1Name + ' ' + caster1Twitter + ' ' + caster1Country + ' ' + caster2 + ' ' + caster2Name + ' ' + caster2Twitter + ' ' + caster2Country}
 			{'pokemonP1LeadG1: ' + pokemonP1LeadG1 + 'pokemonP2LeadG1: ' + pokemonP2LeadG1 }

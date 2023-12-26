@@ -41,7 +41,7 @@ export default function Match() {
 					<h1>
 						{match.event_name} - {match.round} - {match.age_division == 'M' ? 'Masters' : match.age_division == 'S' ? 'Senior' : 'Junior'}
 					</h1>
-					<h2>{match.event_location}, {match.country_name}, {new Date (match.date).getFullYear()}/{new Date(match.date).getMonth()+1}/{new Date(match.date).getDate()}</h2>
+					<h2>{match.event_location}, {match.country_name}, {new Date (match.date).getFullYear()}-{new Date(match.date).getMonth()+1}-{new Date(match.date).getDate()}</h2>
 				</Col>
 			</Row>
 			<Row>
