@@ -5,20 +5,24 @@ import { getAllPokemon } from '../services/pokemon';
 import { getAllEvents } from '../services/events';
 import { getAllFormats } from '../services/formats';
 import { getAllCountries } from '../services/countries';
+import { verifyToken } from '../services/auth';
 
 const AppContext = createContext();
 
 const AppProvider = (props) => {
 
 	const [spoilers, setSpoilers] = React.useState(false);
+	const [currentPage, setCurrentPage] = React.useState('/');
 	const [players, setPlayers] = React.useState([]);
 	const [pokemon, setPokemon] = React.useState([]);
 	const [events, setEvents] = React.useState([]);
 	const [formats, setFormats] = React.useState([]);
 	const [countries, setCountries] = React.useState([]);
+	const [user, setUser] = React.useState(null);
 
 	useEffect(() => {
 		(async () => {
+			await verifyTokenAndSetUser();
 			const response = await getAllPlayers();
 			setPlayers(response.data);
 			const pokemonResponse = await getAllPokemon();
@@ -31,6 +35,22 @@ const AppProvider = (props) => {
 			setCountries(countriesResponse.data);
 		})();
 	}, []);
+
+	useEffect( () => {
+		(async () => {
+			await verifyTokenAndSetUser();
+		})();
+	}, [currentPage]);
+
+	async function verifyTokenAndSetUser() {
+		await verifyToken().then((res) => {
+			if (res.success) {
+				setUser(res.data);
+			} else {
+				setUser(null);
+			}
+		});
+	}
   
 	return (
 		<AppContext.Provider value={{
@@ -41,7 +61,11 @@ const AppProvider = (props) => {
 			pokemon,
 			events,
 			formats,
-			countries
+			countries,
+			user,
+			setUser,
+			currentPage,
+			setCurrentPage
 		}}>
 			<>{props.children}</>
 		</AppContext.Provider>

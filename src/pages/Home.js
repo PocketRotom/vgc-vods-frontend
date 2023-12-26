@@ -5,7 +5,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import groupToArray from '../utils/groupToArray';
+import { useApp } from '../contexts/app';
+
 export default function Home() {
+
+	const {setCurrentPage} = useApp();
+
+	setCurrentPage('/');
 
 	const [allFormats, setAllFormats] = useState([]);
 

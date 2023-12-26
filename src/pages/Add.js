@@ -3,6 +3,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Alert from 'react-bootstrap/Alert';
 import { useApp } from '../contexts/app';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
@@ -15,7 +16,18 @@ import { addNewMatch } from '../services/matches';
 
 export default function AddMatch() {
 	// eslint-disable-next-line no-unused-vars
-	const {events, formats, countries, pokemon, players} = useApp();
+	const {events, formats, countries, pokemon, players, user, setCurrentPage} = useApp();
+
+	setCurrentPage('/add');
+
+	if (user == null) {
+		return (
+			<Alert variant="danger">
+				You are not allowed to see this page! Please Login!
+			</Alert>
+		);
+	} 
+
 	const [tournament, setTournament] = React.useState(-1);
 	const [tournamentName, setTournamentName] = React.useState('');
 	// eslint-disable-next-line no-unused-vars
@@ -324,7 +336,7 @@ export default function AddMatch() {
 							<Col className='formDivs'>
 								<Form.Group  className="mb-3 px-0" controlId="newTournamentName">
 									<FloatingLabel
-										controlId="floatingInput"
+										controlId="tournamentName"
 										label="New Tournament Name"
 										className="mb-3">
 										<Form.Control type="text" name="tournamentName" value={tournamentName} onChange={(e) => setTournamentName(e.target.value)} />
@@ -334,7 +346,7 @@ export default function AddMatch() {
 							<Col className='formDivs'>
 								<Form.Group className="mb-3" controlId="tournamentStartDate">
 									<FloatingLabel
-										controlId="floatingInput"
+										controlId="tournamentStartDate"
 										label="Tournament Start Date"
 										id="tournamentStartDate"
 										className="mb-3">
@@ -350,7 +362,7 @@ export default function AddMatch() {
 							<Col className='formDivs'>
 								<Form.Group className="mb-3" controlId="tournamentEndDate">
 									<FloatingLabel
-										controlId="floatingInput"
+										controlId="tournamentEndDate"
 										label="Tournament End Date"
 										id="tournamentEndDate"
 										className="mb-3">
@@ -367,7 +379,7 @@ export default function AddMatch() {
 							<Col className='formDivs'>
 								<Form.Group className='p-0' controlId="tournamentLocation">
 									<FloatingLabel
-										controlId="floatingInput"
+										controlId="tournamentLocation"
 										label="Tournament Location">
 										<Form.Control name="tournamentLocation" type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
 									</FloatingLabel>
@@ -412,7 +424,7 @@ export default function AddMatch() {
 								<Col className='formDivs'>
 									<Form.Group  className="mb-3 px-0" controlId="newPlayer1Name">
 										<FloatingLabel
-											controlId="floatingInput"
+											controlId="player1Name"
 											label="New Player Name"
 											className="mb-3">
 											<Form.Control type="text" value={player1Name} onChange={(e) => setPlayer1Name(e.target.value)} />
@@ -422,7 +434,7 @@ export default function AddMatch() {
 								<Col className='formDivs'>
 									<Form.Group  className="mb-3" controlId="newPlayer1Twitter">
 										<FloatingLabel
-											controlId="floatingInput"
+											controlId="player1Twitter"
 											label="New Player X/Twitter (without @)"
 											className="mb-3">
 											<Form.Control type="text" value={player1Twitter} onChange={(e) => setPlayer1Twitter(e.target.value)} />
@@ -467,7 +479,7 @@ export default function AddMatch() {
 								<Col className='formDivs'>
 									<Form.Group  className="mb-3 px-0" controlId="newPlayer2Name">
 										<FloatingLabel
-											controlId="floatingInput"
+											controlId="player2Name"
 											label="New Player Name"
 											className="mb-3">
 											<Form.Control type="text" value={player2Name} onChange={(e) => setPlayer2Name(e.target.value)} />
@@ -477,7 +489,7 @@ export default function AddMatch() {
 								<Col className='formDivs'>
 									<Form.Group  className="mb-3" controlId="newPlayer2Twitter">
 										<FloatingLabel
-											controlId="floatingInput"
+											controlId="player2Twitter"
 											label="New Player X/Twitter (without @)"
 											className="mb-3">
 											<Form.Control type="text" value={player2Twitter} onChange={(e) => setPlayer2Twitter(e.target.value)} />
@@ -524,7 +536,7 @@ export default function AddMatch() {
 								<Col className='formDivs'>
 									<Form.Group  className="mb-3 px-0" controlId="newCaster1Name">
 										<FloatingLabel
-											controlId="floatingInput"
+											controlId="caster1Name"
 											label="New Caster Name"
 											className="mb-3">
 											<Form.Control type="text" value={caster1Name} onChange={(e) => setCaster1Name(e.target.value)} />
@@ -534,7 +546,7 @@ export default function AddMatch() {
 								<Col className='formDivs'>
 									<Form.Group  className="mb-3" controlId="newCaster1Twitter">
 										<FloatingLabel
-											controlId="floatingInput"
+											controlId="caster1Twitter"
 											label="New Caster X/Twitter (without @)"
 											className="mb-3">
 											<Form.Control type="text" value={caster1Twitter} onChange={(e) => setCaster1Twitter(e.target.value)} />
@@ -570,7 +582,7 @@ export default function AddMatch() {
 								<Col className='formDivs'>
 									<Form.Group  className="mb-3 px-0" controlId="newCaster2Name">
 										<FloatingLabel
-											controlId="floatingInput"
+											controlId="caster2Name"
 											label="New Caster Name"
 											className="mb-3">
 											<Form.Control type="text" value={caster2Name} onChange={(e) => setCaster2Name(e.target.value)} />
@@ -580,7 +592,7 @@ export default function AddMatch() {
 								<Col className='formDivs'>
 									<Form.Group  className="mb-3" controlId="newCaster2Twitter">
 										<FloatingLabel
-											controlId="floatingInput"
+											controlId="caster2Twitter"
 											label="New Caster X/Twitter (without @)"
 											className="mb-3">
 											<Form.Control type="text" value={caster2Twitter} onChange={(e) => setCaster2Twitter(e.target.value)} />
@@ -1019,7 +1031,7 @@ export default function AddMatch() {
 							<Col className='formDivs'>
 								<Form.Group className="mb-3" controlId="matchDate">
 									<FloatingLabel
-										controlId="floatingInput"
+										controlId="matchDate"
 										label="Match Date"
 										id="matchDate"
 										className="mb-3">
@@ -1035,7 +1047,7 @@ export default function AddMatch() {
 							<Col className='formDivs'>
 								<Form.Group  className="mb-3 px-0" controlId="round">
 									<FloatingLabel
-										controlId="floatingInput"
+										controlId="roundName"
 										label="Round Name"
 										className="mb-3">
 										<Form.Control type="text" value={round} onChange={(e) => setRound(e.target.value)} />
@@ -1045,7 +1057,7 @@ export default function AddMatch() {
 							<Col className='px-0 formDivs'>
 								<Form.Group  className="mb-3 px-0" controlId="url">
 									<FloatingLabel
-										controlId="floatingInput"
+										controlId="videoURL"
 										label="Video URL"
 										className="mb-3">
 										<Form.Control type="text" value={url} onChange={(e) => setURL(e.target.value)} />

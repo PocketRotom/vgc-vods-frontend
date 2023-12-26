@@ -7,14 +7,17 @@ import MenuItems from './MenuItems';
 import PathConstants from '../routes/pathConstants';
 import MenuToggler from './MenuToggler';
 import { useApp } from '../contexts/app';
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 export default function MyNavBar() {
 	const [expanded, setExpanded] = React.useState(false);
-	const { spoilers, setSpoilers } = useApp();
+	const { spoilers, setSpoilers, user, setUser, currentPage } = useApp();
+	const navigate = useNavigate();
 
 	return (
 		<Navbar bg="dark" variant="dark" expand="lg" expanded={expanded}>
-			<Container>
+			<Container  style={{width: 'unset'}}>
 				<Navbar.Brand href="/">
 					<img
 						alt=""
@@ -36,15 +39,46 @@ export default function MyNavBar() {
 							path={PathConstants.HOME}
 							onClose={setExpanded}
 						/>
-						<MenuItems
-							name="Add Match"
-							path={PathConstants.ADD}
-							onClose={setExpanded}
-						/>
-						<MenuToggler
+						{currentPage == '/match' && <MenuToggler
 							name={spoilers ? 'Hide Spoilers' : 'Show Spoilers'}
 							function={() => setSpoilers(!spoilers)} 
-						/>
+						/>}
+						
+						{ user && (
+							<>
+								<MenuItems
+									name="Add Match"
+									path={PathConstants.ADD}
+									onClose={setExpanded}
+								/>
+								<MenuToggler
+									name="Logout"
+									function={() => {
+										setUser(null);
+										navigate('/');
+										Cookies.remove('token');
+										alert('Logged out successfully');
+									}} 
+								/>
+							</>
+						) }
+						
+						
+
+						{!user && (
+							<>
+								<MenuItems
+									name="Login"
+									path={PathConstants.LOGIN}
+									onClose={setExpanded}
+								/>
+								<MenuItems
+									name="Signup"
+									path={PathConstants.SIGNUP}
+									onClose={setExpanded}
+								/>
+							</>	
+						)}
 					</Nav>
 				</Navbar.Collapse>
 			</Container>

@@ -13,7 +13,10 @@ import Image from 'react-bootstrap/Image';
 
 export default function Match() {
 	let params = useParams();
-	let {spoilers} = useApp();
+	let {spoilers, setCurrentPage} = useApp();
+
+	setCurrentPage('/match');
+
 	const [match, setMatch] = useState();
 	const [loading, setLoading] = useState(true);
 
