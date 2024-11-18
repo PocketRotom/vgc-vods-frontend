@@ -11,6 +11,7 @@ export interface AddMatchResponse {
 
 
 export interface Match {
+  [key: string]: any;
     match_id: number;
     event_name: string;
     event_id: number;
