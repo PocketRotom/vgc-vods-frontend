@@ -1,6 +1,6 @@
 export interface LoginResponse {
   success: boolean;
-  data?: string | boolean; //Token
+  data?: string | false; //Token
 }
 
 export interface SignupResponse {
