@@ -3,4 +3,6 @@ export type LoginState = {
     setUsername: (username: string) => void;
     password: string;
     setPassword: (password: string) => void;
+    isLoggedIn: boolean;
+    setIsLoggedIn: (isLoggedIn: boolean) => void;
 };

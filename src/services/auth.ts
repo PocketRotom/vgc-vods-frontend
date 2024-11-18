@@ -1,21 +1,25 @@
-import { LoginResponse, SignupResponse, VerifyTokenResponse } from '../models/auth';
+import { AxiosResponse } from 'axios';
 import api from '../utils/api';
 import Cookies from 'js-cookie';
 
-export const login = async (username: string, password: string): Promise<any> => {
+export const login = async (username: string, password: string): Promise<boolean> => {
   try {
-    console.log('Username: ' + username + ' Password: ' + password);
-    const res: LoginResponse = await api.post('/login', { username, password });
-    console.log(res.data);
-    return res.data;
+    //console.log('Username: ' + username + ' Password: ' + password);
+    const res: AxiosResponse = await api.post('/login', { username, password });
+    if (res.data.success && res.data.data) {
+      Cookies.set('token', res.data.data);
+      return true;
+    }
+    return false;
   } catch (error) {
     console.log(error);
+    return false;
   }
 };
 
 export const signup = async (username: string, password: string): Promise<boolean | undefined> => {
   try {
-    const res: SignupResponse = await api.post('/signup', { username, password });
+    const res: AxiosResponse = await api.post('/signup', { username, password });
     return res.data.success;
   } catch (error) {
     console.log(error);
@@ -25,8 +29,8 @@ export const signup = async (username: string, password: string): Promise<boolea
 export const verifyToken = async (): Promise<any> => {
   try {
     const token = Cookies.get('token');
-    const res: VerifyTokenResponse = await api.post('/verifyToken', { token });
-    return res.data;
+    const res: AxiosResponse = await api.post('/verifyToken', { token });
+    return res.data.success;
   } catch (error) {
     console.log(error);
     return false;

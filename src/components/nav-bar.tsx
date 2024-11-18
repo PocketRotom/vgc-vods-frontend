@@ -1,7 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useLogin from "../hooks/use-login";
+import Cookies from "js-cookie";
 
 const NavBar: React.FC = function NavBar() {
+  const isLoggedIn = useLogin((state) => state.isLoggedIn);
+  const setIsLoggedIn = useLogin((state) => state.setIsLoggedIn);
+  const navigate = useNavigate();
+
+  function logout() {
+    setIsLoggedIn(false);
+    Cookies.remove("token");
+    navigate("/login");
+  }
+
   return (
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
@@ -13,12 +25,23 @@ const NavBar: React.FC = function NavBar() {
           <Link to="/" className="text-gray-300 hover:text-white">
             Home
           </Link>
-          <Link to="/login" className="text-gray-300 hover:text-white">
-            Login
-          </Link>
-          <Link to="/login" className="text-gray-300 hover:text-white">
-            Signup
-          </Link>
+          {!isLoggedIn ? (
+            <Link to="/login" className="text-gray-300 hover:text-white">
+              Login
+            </Link>
+          ) : (
+            <>
+              <Link to="/secret" className="text-gray-300 hover:text-white">
+                Secret
+              </Link>
+              <button
+                onClick={logout}
+                className="text-gray-300 hover:text-white"
+              >
+                Logout
+              </button>
+            </>
+          )}
         </div>
       </div>
     </nav>
