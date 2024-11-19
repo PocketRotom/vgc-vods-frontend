@@ -36,8 +36,8 @@ const NavBar: React.FC = function NavBar() {
             </Link>
           ) : (
             <>
-              <Link to="/secret" className="text-gray-300 hover:text-white">
-                Secret
+              <Link to="/addMatch" className="text-gray-300 hover:text-white">
+                Add Match
               </Link>
               <button
                 onClick={logout}

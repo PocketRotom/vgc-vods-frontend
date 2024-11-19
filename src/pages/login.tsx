@@ -19,7 +19,7 @@ export const LoginPage: React.FC = function LoginPage() {
     console.log(response);
     if (response) {
       setIsLoggedIn(true);
-      navigate("/secret");
+      navigate("/addMatch");
     }
   }
 
@@ -27,7 +27,7 @@ export const LoginPage: React.FC = function LoginPage() {
     if (isLoggedIn) {
       console.log(isLoggedIn);
       // user is not authenticated
-      navigate("/secret");
+      navigate("/addMatch");
     }
   }, []);
 
